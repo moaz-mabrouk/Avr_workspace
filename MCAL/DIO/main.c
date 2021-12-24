@@ -10,7 +10,6 @@
 
 int main(){
 
-	DIO_u8SetPinDirection(portA,pin0__,pinOutput);
-	DIO_u8SetPinValue(portA,pin0__,pinHigh);
+
 	while (1){}
 }
