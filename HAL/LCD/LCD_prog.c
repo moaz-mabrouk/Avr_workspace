@@ -13,7 +13,7 @@ void LCD_vdSendData(u8 Copy_u8Data){
 	DIO_u8SetPinValue(LCD_CONTROLPORT,LCD_RW_PIN,pinLow);
 
 	/*------------------Send data------------------*/
-	DIO_u8SetPortValue(LCD_DATAPORT,generalValue,Copy_u8Data);
+	DIO_u8SetPortValue(LCD_DATAPORT,Copy_u8Data);
 
 	/*------------------Set Enable as high------------------*/
 	DIO_u8SetPinValue(LCD_CONTROLPORT,LCD_E_PIN,pinHigh);
@@ -36,7 +36,7 @@ void LCD_vdSendCommand(u8 Copy_u8Command){
 	DIO_u8SetPinValue(LCD_CONTROLPORT,LCD_RW_PIN,pinLow);
 
 	/*------------------Send command------------------*/
-	DIO_u8SetPortValue(LCD_DATAPORT,generalValue,Copy_u8Command);
+	DIO_u8SetPortValue(LCD_DATAPORT,Copy_u8Command);
 
 	/*------------------Set Enable as High------------------*/
 	DIO_u8SetPinValue(LCD_CONTROLPORT,LCD_E_PIN,pinHigh);
@@ -50,8 +50,8 @@ void LCD_vdSendCommand(u8 Copy_u8Command){
 }
 
 void LCD_vdInit(void){
-	_delay_ms(30);
-	LCD_vdSendCommand(0b00111100);
+	_delay_ms(40);
+	LCD_vdSendCommand(0b00110100);
 	_delay_ms(1);
 	LCD_vdSendCommand(0b0001100);
 	_delay_ms(1);

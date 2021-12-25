@@ -42,8 +42,8 @@ u8 DIO_u8SetPinValue(enum_port Copy_enuPort, enum_pin Copy_enuPin, enum_value Co
 		switch(Copy_enuPort){
 		case portA: CLR_BIT(PORTA,Copy_enuPin);break;
 		case portB: CLR_BIT(PORTB,Copy_enuPin);break;
-		case portC: CLR_BIT(PORTB,Copy_enuPin);break;
-		case portD: CLR_BIT(PORTA,Copy_enuPin);break;
+		case portC: CLR_BIT(PORTC,Copy_enuPin);break;
+		case portD: CLR_BIT(PORTD,Copy_enuPin);break;
 		}
 	}
 
@@ -53,7 +53,7 @@ u8 DIO_u8SetPinValue(enum_port Copy_enuPort, enum_pin Copy_enuPin, enum_value Co
 u8 DIO_u8GetPinValue(enum_port Copy_enuPort, enum_pin Copy_enuPin, u8 *pu8Value){
 
 	switch (Copy_enuPort){
-	case portA: *pu8Value= GET_BIT(PINA,Copy_enuPin);break;
+	case portA: *pu8Value=GET_BIT(PINA,Copy_enuPin);break;
 	case portB: *pu8Value=GET_BIT(PINB,Copy_enuPin);break;
 	case portC: *pu8Value=GET_BIT(PINC,Copy_enuPin);break;
 	case portD: *pu8Value=GET_BIT(PIND,Copy_enuPin);break;
@@ -61,68 +61,25 @@ u8 DIO_u8GetPinValue(enum_port Copy_enuPort, enum_pin Copy_enuPin, u8 *pu8Value)
 }
 /*-----------------------------------------------------------------------------------------------------------*/
 /*Set any port direction*/
-u8 DIO_u8SetPortDirection(enum_port Copy_enuPort, enum_direction Copy_enuDirection, u8 Copy_u8GeneralIO){
-/*output*/
-	if(Copy_enuDirection==portOutput){
-		switch(Copy_enuPort){
-		case portA: DDRA=portOutput;break;
-		case portB: DDRB=portOutput;break;
-		case portC: DDRC=portOutput;break;
-		case portD: DDRD=portOutput;break;
+u8 DIO_u8SetPortDirection(enum_port Copy_enuPort,enum_direction Copy_u8GeneralIO){
 
-		}
-	}
-/*input*/
-	else if(Copy_enuDirection==portInput){
-		switch(Copy_enuPort){
-		case portA: DDRA=portInput;break;
-		case portB: DDRB=portInput;break;
-		case portC: DDRC=portInput;break;
-		case portD: DDRD=portInput;break;
-		}
-	}
-/*General input/output*/
-	else if (Copy_enuDirection==generalio){
-		switch(Copy_enuPort){
+	switch(Copy_enuPort){
 		case portA: DDRA=Copy_u8GeneralIO;break;
 		case portB: DDRB=Copy_u8GeneralIO;break;
 		case portC: DDRC=Copy_u8GeneralIO;break;
 		case portD: DDRD=Copy_u8GeneralIO;break;
-		}
 	}
 }
 
 /*Set any port value*/
-u8 DIO_u8SetPortValue(enum_port Copy_enuPort, enum_value Copy_enuValue, u8 Copy_u8GeneralValue){
+u8 DIO_u8SetPortValue(enum_port Copy_enuPort,enum_value Copy_u8GeneralValue){
 
-/*output*/
-	if(Copy_enuValue==portHigh){
 		switch(Copy_enuPort){
-		case portA: DDRA=portHigh;break;
-		case portB: DDRB=portHigh;break;
-		case portC: DDRC=portHigh;break;
-		case portD: DDRD=portHigh;break;
-
+			case portA: PORTA=Copy_u8GeneralValue;break;
+			case portB: PORTB=Copy_u8GeneralValue;break;
+			case portC: PORTC=Copy_u8GeneralValue;break;
+			case portD: PORTD=Copy_u8GeneralValue;break;
 		}
-	}
-/*input*/
-	else if(Copy_enuValue==portLow){
-		switch(Copy_enuPort){
-		case portA: DDRA=portLow;break;
-		case portB: DDRB=portLow;break;
-		case portC: DDRC=portLow;break;
-		case portD: DDRD=portLow;break;
-		}
-	}
-/*General input/output*/
-	else if (Copy_enuValue==generalValue){
-		switch(Copy_enuPort){
-		case portA: DDRA=Copy_u8GeneralValue;break;
-		case portB: DDRB=Copy_u8GeneralValue;break;
-		case portC: DDRC=Copy_u8GeneralValue;break;
-		case portD: DDRD=Copy_u8GeneralValue;break;
-		}
-	}
 }
 
 /*Read any port value*/

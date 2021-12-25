@@ -35,7 +35,6 @@ typedef enum {
 typedef enum{
 	pinLow,
 	pinHigh,
-	generalValue,
 	portLow  =0x00,
 	portHigh =0xff
 	
@@ -50,9 +49,9 @@ u8 DIO_u8SetPinValue(enum_port Copy_enuPort, enum_pin Copy_enuPin, enum_value Co
 u8 DIO_u8GetPinValue(enum_port Copy_enuPort, enum_pin Copy_enuPin, u8 *pu8Value);
 /*----------------------------------------------------------------------------------------*/
 /*Set any port direction*/
-u8 DIO_u8SetPortDirection(enum_port Copy_enuPort, enum_direction Copy_enuDirection, u8 Copy_u8GeneralIO);
+u8 DIO_u8SetPortDirection(enum_port Copy_enuPort, enum_direction Copy_u8GeneralIO);
 /*Set any port value*/
-u8 DIO_u8SetPortValue(enum_port Copy_enuPort, enum_value Copy_enuValue, u8 Copy_u8GeneralValue);
+u8 DIO_u8SetPortValue(enum_port Copy_enuPort, enum_value Copy_u8GeneralValue);
 /*Read any port value*/
 u8 DIO_u8GetPortValue(enum_port Copy_enuPort, u8 *pu8Value);
 
