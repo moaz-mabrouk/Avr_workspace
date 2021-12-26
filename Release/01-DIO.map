@@ -117,7 +117,7 @@ LOAD e:/es diploma/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x550
+.text           0x00000000      0x54e
  *(.vectors)
  .vectors       0x00000000       0x54 e:/es diploma/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -230,15 +230,15 @@ LOAD e:/es diploma/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr
  .text.KPAD_u8GetPressedKey
                 0x000003bc      0x14c ./HAL/KPAD/KPAD_porg.o
                 0x000003bc                KPAD_u8GetPressedKey
- .text.main     0x00000508       0x44 ./main.o
+ .text.main     0x00000508       0x42 ./main.o
                 0x00000508                main
- .text.libgcc   0x0000054c        0x0 e:/es diploma/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x0000054c        0x0 e:/es diploma/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
-                0x0000054c                . = ALIGN (0x2)
+ .text.libgcc   0x0000054a        0x0 e:/es diploma/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x0000054a        0x0 e:/es diploma/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x0000054a                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000054c        0x0 e:/es diploma/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x0000054c                exit
-                0x0000054c                _exit
+ .fini9         0x0000054a        0x0 e:/es diploma/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x0000054a                exit
+                0x0000054a                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -257,11 +257,11 @@ LOAD e:/es diploma/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000054c        0x4 e:/es diploma/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000054a        0x4 e:/es diploma/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000550                _etext = .
+                0x0000054e                _etext = .
 
-.data           0x00800060       0x10 load address 0x00000550
+.data           0x00800060       0x10 load address 0x0000054e
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 e:/es diploma/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -294,8 +294,8 @@ LOAD e:/es diploma/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr
  *(.bss*)
  *(COMMON)
                 0x00800070                PROVIDE (__bss_end, .)
-                0x00000550                __data_load_start = LOADADDR (.data)
-                0x00000560                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000054e                __data_load_start = LOADADDR (.data)
+                0x0000055e                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800070        0x0
                 0x00800070                PROVIDE (__noinit_start, .)

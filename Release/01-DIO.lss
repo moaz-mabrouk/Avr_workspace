@@ -3,9 +3,9 @@
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000550  00000000  00000000  00000074  2**1
+  0 .text         0000054e  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000010  00800060  00000550  000005c4  2**0
+  1 .data         00000010  00800060  0000054e  000005c2  2**0
                   CONTENTS, ALLOC, LOAD, DATA
 
 Disassembly of section .text:
@@ -45,7 +45,7 @@ Disassembly of section .text:
   60:	10 e0       	ldi	r17, 0x00	; 0
   62:	a0 e6       	ldi	r26, 0x60	; 96
   64:	b0 e0       	ldi	r27, 0x00	; 0
-  66:	e0 e5       	ldi	r30, 0x50	; 80
+  66:	ee e4       	ldi	r30, 0x4E	; 78
   68:	f5 e0       	ldi	r31, 0x05	; 5
   6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
 
@@ -58,7 +58,7 @@ Disassembly of section .text:
   72:	b1 07       	cpc	r27, r17
   74:	d9 f7       	brne	.-10     	; 0x6c <.do_copy_data_loop>
   76:	0e 94 84 02 	call	0x508	; 0x508 <main>
-  7a:	0c 94 a6 02 	jmp	0x54c	; 0x54c <_exit>
+  7a:	0c 94 a5 02 	jmp	0x54a	; 0x54a <_exit>
 
 0000007e <__bad_interrupt>:
   7e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -434,7 +434,7 @@ Disassembly of section .text:
  34e:	f1 f7       	brne	.-4      	; 0x34c <LCD_vdInit+0xe>
  350:	01 97       	sbiw	r24, 0x01	; 1
  352:	d9 f7       	brne	.-10     	; 0x34a <LCD_vdInit+0xc>
- 354:	84 e3       	ldi	r24, 0x34	; 52
+ 354:	8c e3       	ldi	r24, 0x3C	; 60
  356:	0e 94 7f 01 	call	0x2fe	; 0x2fe <LCD_vdSendCommand>
  35a:	00 ed       	ldi	r16, 0xD0	; 208
  35c:	17 e0       	ldi	r17, 0x07	; 7
@@ -501,17 +501,17 @@ Disassembly of section .text:
  3dc:	de bf       	out	0x3e, r29	; 62
  3de:	0f be       	out	0x3f, r0	; 63
  3e0:	cd bf       	out	0x3d, r28	; 61
- 3e2:	81 e0       	ldi	r24, 0x01	; 1
- 3e4:	89 83       	std	Y+1, r24	; 0x01
- 3e6:	1a 82       	std	Y+2, r1	; 0x02
- 3e8:	8b 83       	std	Y+3, r24	; 0x03
+ 3e2:	91 e0       	ldi	r25, 0x01	; 1
+ 3e4:	99 83       	std	Y+1, r25	; 0x01
+ 3e6:	83 e0       	ldi	r24, 0x03	; 3
+ 3e8:	8a 83       	std	Y+2, r24	; 0x02
  3ea:	82 e0       	ldi	r24, 0x02	; 2
- 3ec:	8c 83       	std	Y+4, r24	; 0x04
- 3ee:	83 e0       	ldi	r24, 0x03	; 3
- 3f0:	8d 83       	std	Y+5, r24	; 0x05
- 3f2:	84 e0       	ldi	r24, 0x04	; 4
+ 3ec:	8b 83       	std	Y+3, r24	; 0x03
+ 3ee:	1c 82       	std	Y+4, r1	; 0x04
+ 3f0:	9d 83       	std	Y+5, r25	; 0x05
+ 3f2:	85 e0       	ldi	r24, 0x05	; 5
  3f4:	8e 83       	std	Y+6, r24	; 0x06
- 3f6:	85 e0       	ldi	r24, 0x05	; 5
+ 3f6:	84 e0       	ldi	r24, 0x04	; 4
  3f8:	8f 83       	std	Y+7, r24	; 0x07
  3fa:	86 e0       	ldi	r24, 0x06	; 6
  3fc:	88 87       	std	Y+8, r24	; 0x08
@@ -541,12 +541,12 @@ Disassembly of section .text:
  42c:	ee 0d       	add	r30, r14
  42e:	ff 1d       	adc	r31, r15
  430:	b0 80       	ld	r11, Z
- 432:	82 e0       	ldi	r24, 0x02	; 2
+ 432:	81 e0       	ldi	r24, 0x01	; 1
  434:	6b 2d       	mov	r22, r11
  436:	40 e0       	ldi	r20, 0x00	; 0
  438:	0e 94 b4 00 	call	0x168	; 0x168 <DIO_u8SetPinValue>
  43c:	1e 81       	ldd	r17, Y+6	; 0x06
- 43e:	82 e0       	ldi	r24, 0x02	; 2
+ 43e:	81 e0       	ldi	r24, 0x01	; 1
  440:	61 2f       	mov	r22, r17
  442:	a6 01       	movw	r20, r12
  444:	0e 94 27 01 	call	0x24e	; 0x24e <DIO_u8GetPinValue>
@@ -557,7 +557,7 @@ Disassembly of section .text:
  450:	90 e0       	ldi	r25, 0x00	; 0
  452:	25 c0       	rjmp	.+74     	; 0x49e <KPAD_u8GetPressedKey+0xe2>
  454:	1f 81       	ldd	r17, Y+7	; 0x07
- 456:	82 e0       	ldi	r24, 0x02	; 2
+ 456:	81 e0       	ldi	r24, 0x01	; 1
  458:	61 2f       	mov	r22, r17
  45a:	a6 01       	movw	r20, r12
  45c:	0e 94 27 01 	call	0x24e	; 0x24e <DIO_u8GetPinValue>
@@ -568,7 +568,7 @@ Disassembly of section .text:
  468:	90 e0       	ldi	r25, 0x00	; 0
  46a:	19 c0       	rjmp	.+50     	; 0x49e <KPAD_u8GetPressedKey+0xe2>
  46c:	18 85       	ldd	r17, Y+8	; 0x08
- 46e:	82 e0       	ldi	r24, 0x02	; 2
+ 46e:	81 e0       	ldi	r24, 0x01	; 1
  470:	61 2f       	mov	r22, r17
  472:	a6 01       	movw	r20, r12
  474:	0e 94 27 01 	call	0x24e	; 0x24e <DIO_u8GetPinValue>
@@ -578,7 +578,7 @@ Disassembly of section .text:
  47e:	82 e0       	ldi	r24, 0x02	; 2
  480:	90 e0       	ldi	r25, 0x00	; 0
  482:	0d c0       	rjmp	.+26     	; 0x49e <KPAD_u8GetPressedKey+0xe2>
- 484:	82 e0       	ldi	r24, 0x02	; 2
+ 484:	81 e0       	ldi	r24, 0x01	; 1
  486:	67 e0       	ldi	r22, 0x07	; 7
  488:	a6 01       	movw	r20, r12
  48a:	0e 94 27 01 	call	0x24e	; 0x24e <DIO_u8GetPinValue>
@@ -601,14 +601,14 @@ Disassembly of section .text:
  4ae:	f9 1f       	adc	r31, r25
  4b0:	01 85       	ldd	r16, Z+9	; 0x09
  4b2:	05 c0       	rjmp	.+10     	; 0x4be <KPAD_u8GetPressedKey+0x102>
- 4b4:	82 e0       	ldi	r24, 0x02	; 2
+ 4b4:	81 e0       	ldi	r24, 0x01	; 1
  4b6:	61 2f       	mov	r22, r17
  4b8:	a6 01       	movw	r20, r12
  4ba:	0e 94 27 01 	call	0x24e	; 0x24e <DIO_u8GetPinValue>
  4be:	89 81       	ldd	r24, Y+1	; 0x01
  4c0:	88 23       	and	r24, r24
  4c2:	c1 f3       	breq	.-16     	; 0x4b4 <KPAD_u8GetPressedKey+0xf8>
- 4c4:	82 e0       	ldi	r24, 0x02	; 2
+ 4c4:	81 e0       	ldi	r24, 0x01	; 1
  4c6:	6b 2d       	mov	r22, r11
  4c8:	41 e0       	ldi	r20, 0x01	; 1
  4ca:	0e 94 b4 00 	call	0x168	; 0x168 <DIO_u8SetPinValue>
@@ -656,21 +656,20 @@ Disassembly of section .text:
  522:	60 e0       	ldi	r22, 0x00	; 0
  524:	0e 94 5a 01 	call	0x2b4	; 0x2b4 <DIO_u8SetPortValue>
  528:	0e 94 9f 01 	call	0x33e	; 0x33e <LCD_vdInit>
- 52c:	82 e0       	ldi	r24, 0x02	; 2
+ 52c:	81 e0       	ldi	r24, 0x01	; 1
  52e:	6f e0       	ldi	r22, 0x0F	; 15
  530:	0e 94 49 01 	call	0x292	; 0x292 <DIO_u8SetPortDirection>
- 534:	82 e0       	ldi	r24, 0x02	; 2
+ 534:	81 e0       	ldi	r24, 0x01	; 1
  536:	6f ef       	ldi	r22, 0xFF	; 255
  538:	0e 94 5a 01 	call	0x2b4	; 0x2b4 <DIO_u8SetPortValue>
  53c:	0e 94 de 01 	call	0x3bc	; 0x3bc <KPAD_u8GetPressedKey>
  540:	84 36       	cpi	r24, 0x64	; 100
  542:	e1 f3       	breq	.-8      	; 0x53c <main+0x34>
- 544:	80 5d       	subi	r24, 0xD0	; 208
- 546:	0e 94 be 01 	call	0x37c	; 0x37c <LCD_vdSendData>
- 54a:	f8 cf       	rjmp	.-16     	; 0x53c <main+0x34>
+ 544:	0e 94 be 01 	call	0x37c	; 0x37c <LCD_vdSendData>
+ 548:	f9 cf       	rjmp	.-14     	; 0x53c <main+0x34>
 
-0000054c <_exit>:
- 54c:	f8 94       	cli
+0000054a <_exit>:
+ 54a:	f8 94       	cli
 
-0000054e <__stop_program>:
- 54e:	ff cf       	rjmp	.-2      	; 0x54e <__stop_program>
+0000054c <__stop_program>:
+ 54c:	ff cf       	rjmp	.-2      	; 0x54c <__stop_program>

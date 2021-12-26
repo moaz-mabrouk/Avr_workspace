@@ -13,6 +13,7 @@
 #include<util/delay.h>
 
 int main(){
+	/*Set port for*/
 	DIO_u8SetPortDirection(portA,0xff);
 	DIO_u8SetPortValue(portA,0x00);
 	DIO_u8SetPortDirection(portD,0xff);
@@ -20,14 +21,14 @@ int main(){
 	LCD_vdInit();
 
 	/*KeyPad*/
-	DIO_u8SetPortDirection(portC,0x0f);
-	DIO_u8SetPortValue(portC,0xff);
+	DIO_u8SetPortDirection(portB,0x0f);
+	DIO_u8SetPortValue(portB,0xff);
 
 	u8 key=KEY_NOT_PRESSED;
 	while(1){
 		key=KPAD_u8GetPressedKey();
 		if(key!=KEY_NOT_PRESSED){
-			LCD_vdSendData(48+key);
+			LCD_vdSendData(key);
 		}
 
 	}

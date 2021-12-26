@@ -51,7 +51,7 @@ void LCD_vdSendCommand(u8 Copy_u8Command){
 
 void LCD_vdInit(void){
 	_delay_ms(40);
-	LCD_vdSendCommand(0b00110100);
+	LCD_vdSendCommand(0b00111100);
 	_delay_ms(1);
 	LCD_vdSendCommand(0b0001100);
 	_delay_ms(1);
