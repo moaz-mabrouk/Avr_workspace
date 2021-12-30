@@ -1,12 +1,12 @@
 #include"../../lib/STD_TYPES.h"
 #include"../../lib/BIT_MATH.h"
 #include"../../MCAL/DIO/DIO_interface.h"
-#include"KPAD_interface.h"
 #include"KPAD_config.h"
 
 
 u8 KPAD_u8GetPressedKey(void){
 	u8 Local_PressedKey= KEY_NOT_PRESSED;
+
 	u8 KPAD_u8State=1;
 	u8 KPAD_u8ColumnArray[]= {KPAD_C0_PIN, KPAD_C1_PIN, KPAD_C2_PIN, KPAD_C3_PIN};
 	u8 KPAD_u8RowArray[]= {KPAD_R0_PIN, KPAD_R1_PIN, KPAD_R2_PIN, KPAD_R3_PIN};
@@ -31,3 +31,6 @@ u8 KPAD_u8GetPressedKey(void){
 
 	return Local_PressedKey;
 }
+
+
+

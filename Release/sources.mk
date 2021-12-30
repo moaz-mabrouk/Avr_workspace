@@ -23,6 +23,7 @@ C_DEPS :=
 SUBDIRS := \
 HAL/KPAD \
 HAL/LCD \
+HAL/SVN_SEGMENTS \
 MCAL/DIO \
 . \
 
